@@ -6,7 +6,7 @@ def start_game():
     secret_number = random.randint(low, high)
     
     #This is a Test Line 
-    print("The number is {}".format(secret_number))
+    #print("The number is {}".format(secret_number))
     
     print("""
     ================================================
@@ -46,6 +46,7 @@ def start_game():
             print("Thanks for playing!")
             replay = input("""Would you like to play again? [y]es or [n]o? """)
             if replay == "n":
+                print("Thanks for playing!")
                 break
             if replay == "y":
                 start_game()
