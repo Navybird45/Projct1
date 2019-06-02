@@ -1,5 +1,10 @@
 import random
- 
+
+import os
+
+def clear_screen():
+    os.system("cls" if os.name == "nt" else "clear")
+    
 def start_game():
     low = 1
     high = 10
@@ -49,6 +54,7 @@ def start_game():
                 print("Thanks for playing!")
                 break
             if replay == "y":
+                clear_screen()
                 start_game()
                 
         if 1 <= guess < secret_number:
