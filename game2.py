@@ -6,7 +6,7 @@ def start_game():
     secret_number = random.randint(low, high)
     
     #This is a Test Line 
-    #print("The number is {}".format(secret_number))
+    print("The number is {}".format(secret_number))
     
     print("""
     ================================================
@@ -21,7 +21,7 @@ def start_game():
     guess the secret number in as few guesses as
     possible!
     """)
-    
+    print("The current high score is {}, held by {}. Try and beat it!".format(high_score[0], first_place[0])) 
     
     attempts = 0
     while True:
@@ -36,10 +36,12 @@ def start_game():
             print("You guessed the secret number in {} try(s)!".format(attempts))
             high_score.sort()
             if high_score[0] > attempts:
+                first_place[0] = input("What is your name? ")
                 high_score.insert(0, attempts)
+                
                 print("You have the new high score!")
             else:
-                print("The high score is currently {}".format(high_score[0]))
+                print("The high score is currently {}, held by {}".format(high_score[0], first_place[0]))
                 
             print("Thanks for playing!")
             replay = input("""Would you like to play again? [y]es or [n]o? """)
@@ -64,5 +66,6 @@ def start_game():
             continue
             
 if __name__ == '__main__':
-    high_score = [15]    
+    high_score = [7]
+    first_place = ["Jim-Bob"]    
     start_game()
