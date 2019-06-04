@@ -1,11 +1,16 @@
 import random
-
 import os
+
+high_score = [7]
+first_place = ["Jim-Bob"] 
+
 
 def clear_screen():
     os.system("cls" if os.name == "nt" else "clear")
     
 def start_game():
+    global high_score
+    global first_place
     low = 1
     high = 10
     secret_number = random.randint(low, high)
@@ -73,6 +78,4 @@ def start_game():
             continue
             
 if __name__ == '__main__':
-    high_score = [7]
-    first_place = ["Jim-Bob"]    
     start_game()
