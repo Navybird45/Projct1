@@ -3,21 +3,18 @@ import os
 
 high_score = [7]
 first_place = ["Jim-Bob"] 
-
+low = 1
+high = 10
 
 def clear_screen():
+    """Looks at system;
+    Runs 'nt' for all modern versions of Windows;
+    Runs 'clear' if on a non-Windows computer;
+    """
     os.system("cls" if os.name == "nt" else "clear")
-    
-def start_game():
-    global high_score
-    global first_place
-    low = 1
-    high = 10
-    secret_number = random.randint(low, high)
-    
-    #This is a Test Line 
-    #print("The number is {}".format(secret_number))
-    
+
+def welcome_to_game():
+    """Welcomes the player to the game and tells the the current high score and holder"""
     print("""
     ================================================
     Welcome to the Number Guessing Extravaganza!!!!
@@ -31,9 +28,22 @@ def start_game():
     guess the secret number in as few guesses as
     possible!
     """)
-    print("The current high score is {}, held by {}. Try and beat it!".format(high_score[0], first_place[0])) 
+    print("The current high score is {}, held by {}. Try and beat it!".format(high_score[0], first_place[0]))
+    #This is a Test Line 
+    #print("The number is {}".format(secret_number))
     
+def start_game():
+    """Welcomes user, picks a number between the low and high variables, then asks user for a guess;
+    If guess is wrong, tells user if their guess was too low or too high;
+    If guess is right, tells user they won, and if they beat the high score asks them for their name;
+    Puts high score in high_score variable and sets name to first place;
+    Asks user if they would like to play again.
+    """
+    global high_score
+    global first_place
+    secret_number = random.randint(low, high)
     attempts = 0
+    welcome_to_game()
     while True:
         try:
             guess = int(input("What is your guess?  "))
@@ -78,4 +88,5 @@ def start_game():
             continue
             
 if __name__ == '__main__':
+    """Starts game if being run from script, not imported"""
     start_game()
